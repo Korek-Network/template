@@ -23,3 +23,24 @@ export function workRequestMessage({ address, timestamp, requestNonce }) {
 export function submissionMessage({ templateId, nonce, powHash, timestamp }) {
   return `korek-miner-v3:submit:${templateId}:${nonce}:${powHash}:${timestamp}`;
 }
+
+export function workChallenge(template) {
+  const canonical = {
+    protocol: MINER_PROTOCOL,
+    networkId: template.networkId,
+    templateId: template.templateId,
+    height: template.height,
+    previousHash: template.previousHash,
+    rewardAddress: template.rewardAddress,
+    reward: template.reward,
+    minerReward: template.minerReward,
+    treasuryReward: template.treasuryReward,
+    treasuryAddress: template.treasuryAddress,
+    feePayout: template.feePayout,
+    difficulty: template.difficulty,
+    issuedAt: template.issuedAt,
+    notBefore: template.notBefore,
+    expiresAt: template.expiresAt
+  };
+  return createHash("sha256").update(JSON.stringify(canonical)).digest("hex");
+}
