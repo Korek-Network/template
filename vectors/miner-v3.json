@@ -8,6 +8,25 @@
       "nonce": 0,
       "powHash": "6db65fd59fd356f6729140571b5bcd6bb3b83492a16e1bf0a3884442fc3c8a0e"
     }
-  ]
+  ],
+  "workTemplateVector": {
+    "template": {
+      "protocol": "korek-planck-miner/3",
+      "networkId": "korek-planck-testnet-1",
+      "templateId": "00000000-0000-4000-8000-000000000000",
+      "height": 1,
+      "previousHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "rewardAddress": "krk11111111111111111111111111111111111111111",
+      "reward": "5000000000",
+      "minerReward": "4750000000",
+      "treasuryReward": "250000000",
+      "treasuryAddress": "krk1d1ee0261919684cf511b9bd702697b5c4816c61e",
+      "feePayout": "21000",
+      "difficulty": 3,
+      "issuedAt": 1000,
+      "notBefore": 61000,
+      "expiresAt": 91000
+    },
+    "challenge": "33126f7a4bef102f6e70e22bd257349ef6d1ea2553b976865473a556e8752d1b"
+  }
 }
-
