@@ -16,11 +16,10 @@ export function meetsDifficulty(hash, difficulty) {
   return hash.startsWith("0".repeat(difficulty));
 }
 
-export function workRequestMessage({ protocol, address, publicKey, timestamp, nonce }) {
-  return ["KOREK_MINER_WORK", protocol, address, publicKey, timestamp, nonce].join("\n");
+export function workRequestMessage({ address, timestamp, requestNonce }) {
+  return `korek-miner-v3:work:${address}:${timestamp}:${requestNonce}`;
 }
 
-export function submissionMessage({ protocol, address, publicKey, templateId, nonce, powHash }) {
-  return ["KOREK_MINER_SUBMIT", protocol, address, publicKey, templateId, nonce, powHash].join("\n");
+export function submissionMessage({ templateId, nonce, powHash, timestamp }) {
+  return `korek-miner-v3:submit:${templateId}:${nonce}:${powHash}:${timestamp}`;
 }
-
