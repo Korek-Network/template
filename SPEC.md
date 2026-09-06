@@ -13,6 +13,20 @@ valid   = powHash begins with difficulty hexadecimal zero characters
 
 The challenge is exactly 32 bytes and the nonce is an unsigned 32-bit integer. Hex strings are lowercase in canonical messages.
 
+The signed template challenge also commits to the total subsidy, the 95% miner subsidy, the 5% treasury subsidy, the treasury address, and the complete accumulated transaction-fee payout. Changing any payout produces a different challenge.
+
+## Planck economics under test
+
+- maximum supply: 210,000,000 KRK
+- genesis premine: 0 KRK
+- target reward interval: 60 seconds
+- initial subsidy: 50 KRK
+- halving interval: 2,100,000 reward blocks
+- subsidy: 95% miner and 5% treasury
+- transaction fees: 100% successful miner
+
+The Planck treasury address is an intentionally non-production test sink. Mainnet requires a separately generated public multisignature treasury and a genesis reset.
+
 ## Signed work request
 
 A wallet signs this UTF-8 message with the Ed25519 key whose public key derives the reward address:
