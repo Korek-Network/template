@@ -1,0 +1,13 @@
+{
+  "protocol": "korek-planck-miner/3",
+  "algorithm": "sha256(challenge_bytes || uint32_be(nonce))",
+  "vectors": [
+    {
+      "name": "zero challenge and zero nonce",
+      "challenge": "0000000000000000000000000000000000000000000000000000000000000000",
+      "nonce": 0,
+      "powHash": "6db65fd59fd356f6729140571b5bcd6bb3b83492a16e1bf0a3884442fc3c8a0e"
+    }
+  ]
+}
+
