@@ -18,12 +18,7 @@ The challenge is exactly 32 bytes and the nonce is an unsigned 32-bit integer. H
 A wallet signs this UTF-8 message with the Ed25519 key whose public key derives the reward address:
 
 ```text
-KOREK_MINER_WORK
-korek-planck-miner/3
-<reward-address>
-<public-key-hex>
-<unix-time-ms>
-<random-request-nonce>
+korek-miner-v3:work:<reward-address>:<unix-time-ms>:<32-hex-request-nonce>
 ```
 
 The node checks the address ownership, signature, timestamp window, replay nonce, and rate limit before issuing a short-lived template.
@@ -33,13 +28,7 @@ The node checks the address ownership, signature, timestamp window, replay nonce
 After finding a proof, the same wallet signs:
 
 ```text
-KOREK_MINER_SUBMIT
-korek-planck-miner/3
-<reward-address>
-<public-key-hex>
-<template-id>
-<uint32-nonce>
-<pow-hash-hex>
+korek-miner-v3:submit:<template-id>:<uint32-nonce>:<pow-hash-hex>:<unix-time-ms>
 ```
 
 The node independently recomputes the hash and rejects unknown, expired, premature, duplicate, stale, incorrectly owned, invalidly signed, out-of-range, or below-target submissions. A reward is created only after all checks pass.
@@ -55,4 +44,3 @@ Every response identifies `korek-planck-miner/3`. Deployments must use HTTPS and
 ## Mainnet gate
 
 This specification is not a mainnet readiness claim. Before mainnet: freeze canonical serialization and consensus parameters, perform independent security and economic audits, fuzz every decoder and verifier, load-test denial-of-service limits, validate GPU kernels across vendors, implement difficulty adjustment and reorg policy, and complete a public adversarial testnet.
-
